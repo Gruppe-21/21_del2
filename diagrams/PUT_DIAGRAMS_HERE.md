@@ -1,0 +1,1 @@
+# Diagrams goes in this folder
