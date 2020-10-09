@@ -6,7 +6,7 @@ public class Player {
     private String name = "";            // spillers navn
     private int point = 0;               // spillers point
     //private boolean toSekserer = false;  // tjekker om spiller har to seksere
-    private boolean navnSlutterMedS;     // tjekker om navn slutter med s
+    private boolean nameEndsWithS;     // tjekker om navn slutter med s
 
     public Player(String name){
         setName(name);
@@ -37,11 +37,11 @@ public class Player {
     // sæt navn
     public void setName(String name) {
         this.name = name;
-        navnSlutterMedS = getName().toLowerCase().endsWith("s");
+        nameEndsWithS = getName().toLowerCase().endsWith("s");
     }
 
-    public boolean isNavnSlutterMedS() {
-        return navnSlutterMedS;
+    public boolean isNameEndsWithS() {
+        return nameEndsWithS;
     }
 
     // tilføj point
