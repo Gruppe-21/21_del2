@@ -7,6 +7,7 @@ public class Player {
     private int point = 0;               // spillers point
     //private boolean toSekserer = false;  // tjekker om spiller har to seksere
     private boolean nameEndsWithS;     // tjekker om navn slutter med s
+    private int currentSquareIndex;
 
     public Player(String name){
         setName(name);
@@ -47,5 +48,14 @@ public class Player {
     // tilføj point
     public void addPoint(int i){
         setPoint(getPoint() + i);
+    }
+
+    // examines which square the player is on
+    public void setCurrentSquareIndex(int currentSquareIndex){
+        this.currentSquareIndex = currentSquareIndex;
+    }
+
+    public int getCurrentSquareIndex(){
+        return currentSquareIndex;
     }
 }
