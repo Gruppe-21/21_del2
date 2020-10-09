@@ -4,7 +4,7 @@ public class Player {
 
 
     private String name = "";            // spillers navn
-    private int point = 0;               // spillers point
+    private int bankBalance = 1000;        // spillers point
     //private boolean toSekserer = false;  // tjekker om spiller har to seksere
     private boolean nameEndsWithS;     // tjekker om navn slutter med s
     private int currentSquareIndex;
@@ -16,13 +16,13 @@ public class Player {
     }
 
     // hent point værdi
-    public int getPoint() {
-        return point;
+    public int getBankBalance() {
+        return bankBalance;
     }
 
     // sætter spillers point til givne int
-    public void setPoint(int point) {
-        this.point = point;
+    public void setBankBalance(int bankBalance) {
+        this.bankBalance = bankBalance;
     }
 
 
@@ -47,7 +47,7 @@ public class Player {
 
     // tilføj point
     public void addPoint(int i){
-        setPoint(getPoint() + i);
+        setBankBalance(getBankBalance() + i);
     }
 
     // examines which square the player is on
