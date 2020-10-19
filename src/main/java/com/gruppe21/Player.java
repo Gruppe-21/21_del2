@@ -45,11 +45,6 @@ public class Player {
         return nameEndsWithS;
     }
 
-    // tilføj point
-    public void addMoney(int i){
-        bankBalance.addMoney(i);
-     }
-
     // examines which square the player is on
     public void setCurrentSquareIndex(int currentSquareIndex){
         this.currentSquareIndex = currentSquareIndex;
@@ -59,3 +54,4 @@ public class Player {
         return currentSquareIndex;
     }
 }
+
