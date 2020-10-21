@@ -15,7 +15,7 @@ public class BankBalance {
     }
 
     // add value of parameter "amount" to current balance
-    public void addBankBalance(int amount) {
+    public int addBankBalance(int amount) {
         setBankBalance(getBankBalance() + amount);
     }
 
