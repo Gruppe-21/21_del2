@@ -10,8 +10,6 @@ public class BankBalanceTest extends BankBalance {
         BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
         int amount = 100;
 
-        int currentBalance = bankBalance.addBankBalance(amount); // call addBankBalance on bankBalance
-
         assertEquals(1100,currentBalance);
     }
 
