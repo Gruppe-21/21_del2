@@ -12,7 +12,7 @@ public class BankBalanceTest extends BankBalance {
 
         bankBalance.addBankBalance(amount); // call addBankBalance on BankBalance
 
-        assertEquals(1100,currentBalance);
+        assertEquals(1100,bankBalance.getBankBalance());
     }
 
     @Test
