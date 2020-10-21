@@ -12,64 +12,64 @@ package com.gruppe21.spil;
 
 public class Die {
     /**
-     * En terning har mindst 2 sider.
+     * One die has at least 2 sides.
      */
     private int FaceValue;
 
     /**
-     * Den aktuelle værdi af terningen.
+     * Current value of die.
      */
-    private int værdi;
+    private int value;
 
     public Die(){
-        værdi = -1;
+        value = -1;
         FaceValue = 6;
     }
     public Die(int FaceValue){
-        værdi = -1;
+        value = -1;
         this.FaceValue = Math.max(2, FaceValue);
     }
 
     /**
-     * Få antallet af terningens sider.
-     * @return  Terningens antal sider
+     * Gets the amount of die sides.
+     * @return  amount og die sides
      */
     public int getFaceValue(){
         return FaceValue;
     }
 
     /**
-     * Sætter terningens værdi til den givne integer.
-     * @param værdi Værdien som terningen skal sættes til
+     * Sets die value to a given integer.
+     * @param value Value which die is set to
      */
-    public void setVærdi(int værdi) {
-        this.værdi = værdi;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     /**
-     * Få terningens værdi.
-     * @return  Terningens værdi
+     * Get face value of die.
+     * @return  Die value
      */
-    public int getVærdi() {
-        return værdi;
+    public int getValue() {
+        return value;
     }
 
     /**
-     * Konverter terningens værdi til en string.
-     * @return Terningens værdi som en streng
+     * Convert die value to a string.
+     * @return Die value as a string.
      */
     @Override
     public String toString() {
-        return Integer.toString(værdi);
+        return Integer.toString(value);
     }
 
     /**
-     * Simulerer et pseudo-tilfældigt terningekast.
-     * @return værdi af terningen efter kast, som en integer.
+     * Simulates a pseudo-random die throw.
+     * @return value of die after throw as an integer.
      */
-    public int kast() {
-        værdi = (int) (Math.random() * FaceValue + 1);
-        return værdi;
+    public int throwDie() {
+        value = (int) (Math.random() * FaceValue + 1);
+        return value;
     }
 
 }
