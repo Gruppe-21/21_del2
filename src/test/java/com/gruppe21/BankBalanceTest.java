@@ -3,10 +3,10 @@ package com.gruppe21;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class BankBalanceTest extends BankBalance {
+public class BankBalanceTest {
 
     @Test
-    public void addBankBalance(){
+    public void addBankBalanceTest(){
         BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
         int amount = 100;
 
@@ -16,10 +16,10 @@ public class BankBalanceTest extends BankBalance {
     }
 
     @Test
-    public void removeBankBalance(){
+    public void removeBankBalanceTest(){
         BankBalance bankBalance = new BankBalance();
-        bankBalance.setBankBalance(150);             // BankBalance set to 200
-        int amount = -100;
+        bankBalance.setBankBalance(150);             // BankBalance set to 150
+        int amount = 100;
 
         int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 

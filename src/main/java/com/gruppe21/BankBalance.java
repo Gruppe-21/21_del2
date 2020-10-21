@@ -9,18 +9,21 @@ public class BankBalance {
         return balance;
     }
 
-    public int setBankBalance(int balance){
+    public void setBankBalance(int balance){
         this.balance = balance;
-        return balance;
     }
 
     // add value of parameter "amount" to current balance
     public int addBankBalance(int amount) {
         setBankBalance(getBankBalance() + amount);
+        return balance;
     }
 
     // remove value of parameter "amount" from current balance
-    public void removeBankBalance(int amount){
-        setBankBalance(getBankBalance() - amount);
+    // uses Math.abs to get the postive value of int
+    public int removeBankBalance(int amount) {
+        setBankBalance(getBankBalance() - Math.abs(amount));
+        return balance;
     }
+
 }
