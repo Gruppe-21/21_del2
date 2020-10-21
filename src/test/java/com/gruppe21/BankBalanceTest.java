@@ -11,7 +11,6 @@ public class BankBalanceTest extends BankBalance {
         assertEquals();
     }
 
-
     @Test
     public void removeBankBalance(int amount){
 
