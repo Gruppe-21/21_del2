@@ -14,7 +14,7 @@ public class Die {
     /**
      * En terning har mindst 2 sider.
      */
-    private int antalSider;
+    private int FaceValue;
 
     /**
      * Den aktuelle værdi af terningen.
@@ -23,19 +23,19 @@ public class Die {
 
     public Die(){
         værdi = -1;
-        antalSider = 6;
+        FaceValue = 6;
     }
-    public Die(int antalSider){
+    public Die(int FaceValue){
         værdi = -1;
-        this.antalSider = Math.max(2,antalSider);
+        this.FaceValue = Math.max(2, FaceValue);
     }
 
     /**
      * Få antallet af terningens sider.
      * @return  Terningens antal sider
      */
-    public int getAntalSider(){
-        return antalSider;
+    public int getFaceValue(){
+        return FaceValue;
     }
 
     /**
@@ -68,7 +68,7 @@ public class Die {
      * @return værdi af terningen efter kast, som en integer.
      */
     public int kast() {
-        værdi = (int) (Math.random() * antalSider + 1);
+        værdi = (int) (Math.random() * FaceValue + 1);
         return værdi;
     }
 
