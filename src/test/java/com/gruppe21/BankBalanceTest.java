@@ -2,6 +2,6 @@ package com.gruppe21;
 
 import static org.junit.Assert.*;
 
-public class BankBalanceTest {
+public class BankBalanceTest extends BankBalance {
 
 }
