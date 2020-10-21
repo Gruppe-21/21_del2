@@ -13,7 +13,7 @@ public class BankBalance {
         this.balance = balance;
     }
 
-    // add amount to current balance
+    // adds paramter amount to current balance
     public void addBankBalance(int amount) {
         setBankBalance(getBankBalance() + amount);
     }
