@@ -11,6 +11,7 @@ public class BankBalance {
 
     public int setBankBalance(int amount){
         this.balance = balance;
+        return balance;
     }
 
     // add value of parameter amount to current balance
@@ -22,6 +23,4 @@ public class BankBalance {
     public void removeBankBalance(int amount){
         setBankBalance(getBankBalance() - amount);
     }
-
-
 }
