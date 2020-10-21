@@ -2,7 +2,7 @@ package com.gruppe21;
 
 public class BankBalance {
 
-    private int balance = 1000; // NOTE: Player has 1000 as starting balance
+    private int balance = 1000; // Player has 1000 as starting balance
 
 
     public int getBankBalance(){
