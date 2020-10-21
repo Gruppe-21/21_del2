@@ -13,9 +13,13 @@ public class BankBalance {
         this.balance = balance;
     }
 
-    // adds paramter amount to current balance
+    // add paramter amount to current balance
     public void addBankBalance(int amount) {
         setBankBalance(getBankBalance() + amount);
+    }
+
+    public void removeBankBalance(){
+        setBankBalance(getBankBalance() - amount);
     }
 
 
