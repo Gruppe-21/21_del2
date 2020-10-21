@@ -9,10 +9,14 @@ public class BankBalance {
         return balance;
     }
 
-    public int setBankBalance(){
+    public int setBankBalance(int amount){
         this.balance = balance;
     }
 
+    // add amount to current balance
+    public void addBankBalance(int amount) {
+        setBankBalance(getBankBalance() + amount);
+    }
 
 
 }
