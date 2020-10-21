@@ -33,7 +33,7 @@ public class BankBalanceTest extends BankBalance {
 
         bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
-        assertEquals(0,currentBalance);
+        assertEquals(0,bankBalance.getBankBalance());
     }
 
 
