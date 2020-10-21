@@ -19,7 +19,7 @@ public class Die {
     /**
      * One die has at least 2 sides.
      */
-    private int FaceValue;
+    private int faceValue;
 
     /**
      * Current value of die.
@@ -28,11 +28,11 @@ public class Die {
 
     public Die(){
         value = -1;
-        FaceValue = 6;
+        faceValue = 6;
     }
     public Die(int FaceValue){
         value = -1;
-        this.FaceValue = Math.max(2, FaceValue);
+        this.faceValue = Math.max(2, FaceValue);
     }
 
     /**
@@ -40,7 +40,7 @@ public class Die {
      * @return  amount og die sides
      */
     public int getFaceValue(){
-        return FaceValue;
+        return faceValue;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Die {
      * @return value of die after throw as an integer.
      */
     public int throwDie() {
-        value = (int) (Math.random() * FaceValue + 1);
+        value = (int) (Math.random() * faceValue + 1);
         return value;
     }
 
