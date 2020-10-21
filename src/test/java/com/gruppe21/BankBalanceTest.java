@@ -30,7 +30,7 @@ public class BankBalanceTest {
     @Test
     public void removeBankBalanceZeroTest(){
         BankBalance bankBalance = new BankBalance();
-        bankBalance.setBankBalance(50);             // BankBalance set to 50
+        bankBalance.setBankBalance(50);             // bankBalance set to 50
         int amount = -100;
 
         int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
