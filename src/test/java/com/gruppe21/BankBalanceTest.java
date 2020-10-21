@@ -20,7 +20,7 @@ public class BankBalanceTest extends BankBalance {
         BankBalance bankBalance = new BankBalance();
         int amount = -100;
 
-        int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
+        bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
         assertEquals(900,currentBalance);
     }
