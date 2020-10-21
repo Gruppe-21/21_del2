@@ -6,9 +6,13 @@ import org.junit.Test;
 public class BankBalanceTest extends BankBalance {
 
     @Test
-    public void addBankBalance(int amount){
+    public void addBankBalance(){
+        BankBalance bankBalance = new BankBalance();
+        int amount = 100;
 
-        assertEquals();
+        int currentBalance = bankBalance.addBankBalance(amount);
+
+        assertEquals(100,currentBalance);
     }
 
     @Test
