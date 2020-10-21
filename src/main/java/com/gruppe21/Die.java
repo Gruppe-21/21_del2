@@ -1,4 +1,4 @@
-package com.gruppe21.spil;
+package com.gruppe21;
 
 /** Repræsenterer en virtuel terning
  * @author Hildibjørg Didriksen,
@@ -8,6 +8,11 @@ package com.gruppe21.spil;
  * @author Rasmus Nylander
  * @author Troels Christoffersen
  * @author https://github.com/tobiasmaneschijn/21_del1
+ */
+
+/**
+ * This class is from CDIO1 (an earlier project) by the same Authors.
+ * Code descriptions, class' and method has been translated to english.
  */
 
 public class Die {
