@@ -23,7 +23,12 @@ public class BankBalance {
     // uses Math.abs to get the postive value of int
     public int removeBankBalance(int amount) {
         setBankBalance(getBankBalance() - Math.abs(amount));
-        return balance;
+        if (balance < 0){
+            setBankBalance(0);
+            return balance;
+        } else {
+            return balance;
+        }
     }
 
 }

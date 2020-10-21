@@ -19,11 +19,22 @@ public class BankBalanceTest {
     public void removeBankBalanceTest(){
         BankBalance bankBalance = new BankBalance();
         bankBalance.setBankBalance(150);             // BankBalance set to 150
-        int amount = 100;
+        int amount = -100;
 
         int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
         assertEquals(50,currentBalance);
+    }
+
+    @Test
+    public void removeBankBalanceZeroTest(){
+        BankBalance bankBalance = new BankBalance();
+        bankBalance.setBankBalance(50);             // BankBalance set to 50
+        int amount = -100;
+
+        int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
+
+        assertEquals(0,currentBalance);
     }
 
 
