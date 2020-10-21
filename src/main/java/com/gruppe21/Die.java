@@ -12,7 +12,7 @@ package com.gruppe21;
 
 /**
  * This class is from CDIO1 (an earlier project) by the same Authors.
- * Code descriptions, class' and method has been translated to english.
+ * Code descriptions, class' and methods has been translated to english.
  */
 
 public class Die {
