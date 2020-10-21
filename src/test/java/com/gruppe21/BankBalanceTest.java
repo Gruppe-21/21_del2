@@ -31,7 +31,7 @@ public class BankBalanceTest extends BankBalance {
         bankBalance.setBankBalance(50);             // bankBalance set to 50
         int amount = -100;
 
-        int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
+        bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
         assertEquals(0,currentBalance);
     }
