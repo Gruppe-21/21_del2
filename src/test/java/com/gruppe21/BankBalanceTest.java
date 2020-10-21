@@ -8,7 +8,7 @@ public class BankBalanceTest {
     @Test
     public void addBankBalanceTest(){
         BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
-        bankBalance.setBankBalance(3000);            // BankBalance set to 3000
+        bankBalance.setBankBalance(3000);            // bankBalance set to 3000
         int amount = 100;
 
         int currentBalance = bankBalance.addBankBalance(amount); // call addBankBalance on bankBalance
@@ -19,7 +19,7 @@ public class BankBalanceTest {
     @Test
     public void removeBankBalanceTest(){
         BankBalance bankBalance = new BankBalance();
-        bankBalance.setBankBalance(3000);           // BankBalance set to 3000
+        bankBalance.setBankBalance(3000);           // bankBalance set to 3000
         int amount = -100;
 
         int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
