@@ -8,23 +8,23 @@ public class BankBalanceTest {
     @Test
     public void addBankBalanceTest(){
         BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
-        bankBalance.setBankBalance(3000);            // bankBalance set to 3000
+        bankBalance.setBankBalance(1000);            // bankBalance set to 1000
         int amount = 100;
 
         int currentBalance = bankBalance.addBankBalance(amount); // call addBankBalance on bankBalance
 
-        assertEquals(3100,currentBalance);
+        assertEquals(1100,currentBalance);
     }
 
     @Test
     public void removeBankBalanceTest(){
         BankBalance bankBalance = new BankBalance();
-        bankBalance.setBankBalance(3000);           // bankBalance set to 3000
+        bankBalance.setBankBalance(1000);           // bankBalance set to 1000
         int amount = -100;
 
         int currentBalance = bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
-        assertEquals(2900,currentBalance);
+        assertEquals(900,currentBalance);
     }
 
     @Test
