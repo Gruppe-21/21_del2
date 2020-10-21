@@ -9,4 +9,10 @@ public class BankBalance {
         return balance;
     }
 
+    public int setBankBalance(){
+        this.balance = balance;
+    }
+
+
+
 }
