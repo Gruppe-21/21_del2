@@ -18,7 +18,7 @@ public class BankBalance {
         setBankBalance(getBankBalance() + amount);
     }
 
-    public void removeBankBalance(){
+    public void removeBankBalance(int amount){
         setBankBalance(getBankBalance() - amount);
     }
 
