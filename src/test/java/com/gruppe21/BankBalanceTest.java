@@ -6,14 +6,16 @@ import org.junit.Test;
 public class BankBalanceTest extends BankBalance {
 
     @Test
-    public void addBankBalance(){
+    public void addBankBalance(int amount){
 
+        assertEquals();
     }
 
 
     @Test
-    public void removeBankBalance(){
+    public void removeBankBalance(int amount){
 
+        assertEquals();
     }
 
 
