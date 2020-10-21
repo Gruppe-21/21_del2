@@ -22,7 +22,7 @@ public class BankBalanceTest extends BankBalance {
 
         bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
 
-        assertEquals(900,currentBalance);
+        assertEquals(900,bankBalance.getBankBalance());
     }
 
     @Test
