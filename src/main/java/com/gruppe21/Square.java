@@ -38,6 +38,7 @@ public class Square {
 
     public void handleEvent(Player player) {
         System.out.println(eventText);
+        player.getBankBalance().addBalance(this.getModifyValue());
         //TODO add modifyValue to bankBalance
     }
 
