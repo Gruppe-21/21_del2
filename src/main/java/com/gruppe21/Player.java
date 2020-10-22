@@ -1,8 +1,6 @@
 package com.gruppe21;
 
 public class Player {
-
-
     private String name = "";            // spillers navn
     private BankBalance bankBalance;        // spillers point
     //private boolean toSekserer = false;  // tjekker om spiller har to seksere
@@ -11,6 +9,7 @@ public class Player {
 
     public Player(String name){
         setName(name);
+        bankBalance = new BankBalance();
     }
     public Player(){
     }
