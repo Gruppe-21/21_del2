@@ -5,7 +5,7 @@ public class BankBalance {
     private int balance = 1000; // Player has 1000 as starting balance
 
 
-    public int getBankBalance(){
+    public int getBalance(){
         return balance;
     }
 
@@ -15,7 +15,7 @@ public class BankBalance {
 
     // add value of parameter "amount" to current balance
     public int addBankBalance(int amount) {
-        setBankBalance(getBankBalance() + amount);
+        setBankBalance(getBalance() + amount);
         return balance;
     }
 
@@ -23,7 +23,7 @@ public class BankBalance {
     // uses Math.abs to get the numerical value of int
     // balance cannot be of negative value
     public int removeBankBalance(int amount) {
-        setBankBalance(getBankBalance() - Math.abs(amount));
+        setBankBalance(getBalance() - Math.abs(amount));
         if (balance < 0){
             setBankBalance(0);
             return balance;
