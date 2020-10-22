@@ -73,7 +73,7 @@ public class Die {
      * Simulates a pseudo-random die throw.
      * @return value of die after throw as an integer.
      */
-    public int throwDie() {
+    public int rollDie() {
         faceValue = (int) (Math.random() * faceAmount + 1);
         return faceValue;
     }

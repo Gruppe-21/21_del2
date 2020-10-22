@@ -20,6 +20,10 @@ public class Game {
         this.dice = dice;
     }
 
+    public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     private Board board;
     private Player[] players;
     private int currentPlayer;
@@ -49,30 +53,40 @@ public class Game {
         this.isTest = isTest;
     }
 
-    public boolean playRound(){
+    public boolean playRound() {
         System.out.println(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
                 "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
                 "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));
         waitForUserInput();
+
+        String strPrintRoll = "";
         int sum = 0;
         for (Die die : dice) {
-            sum += die.throwDie();
+            sum += die.getValue();
+            strPrintRoll += die + ", ";
         }
+
+        strPrintRoll = strPrintRoll.substring(0, strPrintRoll.length() - 2);
+        System.out.println("You've rolled: " + strPrintRoll);
+
+
         Square squareLanedOn = board.getSquareAtNumber(sum);
         squareLanedOn.handleEvent(players[currentPlayer]);
-        if (players[currentPlayer].getBankBalance().getBalance() >= 3000){
+        if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
-        if (squareLanedOn.getSquareType() != SquareType.ExtraTurn){
+        if (squareLanedOn.getSquareType() != SquareType.ExtraTurn) {
             currentPlayer = nextPlayer();
         }
         return false;
     }
 
     public void startGame(){
-        while (!playRound()){
-
-        }
+        do {
+            for (Die die : dice) {
+                die.rollDie();
+            }
+        }while (!playRound());
         Player winner = players[currentPlayer];
         System.out.println(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
                             + " and won the game");
