@@ -56,7 +56,7 @@ public class Game {
         waitForUserInput();
         int sum = 0;
         for (Die die : dice) {
-            sum += die.throwDie();
+            sum += die.rollDie();
         }
         Square squareLanedOn = board.getSquareAtNumber(sum);
         squareLanedOn.handleEvent(players[currentPlayer]);
