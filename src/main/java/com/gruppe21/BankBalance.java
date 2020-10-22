@@ -14,7 +14,7 @@ public class BankBalance {
     }
 
     // add value of parameter "amount" to current balance
-    public int addBankBalance(int amount) {
+    public int addBalance(int amount) {
         setBalance(getBalance() + amount);
         return balance;
     }
@@ -22,7 +22,7 @@ public class BankBalance {
     // remove value of parameter "amount" from current balance
     // uses Math.abs to get the numerical value of int
     // balance cannot be of negative value
-    public int removeBankBalance(int amount) {
+    public int removeBalance(int amount) {
         setBalance(getBalance() - Math.abs(amount));
         if (balance < 0){
             setBalance(0);
