@@ -1,15 +1,22 @@
 package com.gruppe21;
 
+enum SquareType {
+    Normal,
+    ExtraTurn
+}
+
 public class Square {
 
-    String name;
-    String eventText;
-    int modifyValue;
+    private String name;
+    private String eventText;
+    private int modifyValue;
+    private SquareType squareType;
 
-    Square(String _name, String _eventText, int _modifyValue) {
+    Square(String _name, String _eventText, int _modifyValue, SquareType _squareType) {
         this.name = _name;
         this.eventText = _eventText;
         this.modifyValue = _modifyValue;
+        this.squareType = _squareType;
     }
 
     public String getName() {
