@@ -70,12 +70,12 @@ public class Game {
         System.out.println("You've rolled: " + strPrintRoll);
 
 
-        Square squareLanedOn = board.getSquareAtNumber(sum);
-        squareLanedOn.handleEvent(players[currentPlayer]);
+        Square squareLandedOn = board.getSquareAtNumber(sum);
+        squareLandedOn.handleEvent(players[currentPlayer]);
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
-        if (squareLanedOn.getSquareType() != SquareType.ExtraTurn) {
+        if (squareLandedOn.getSquareType() != SquareType.ExtraTurn) {
             currentPlayer = nextPlayer();
         }
         return false;
