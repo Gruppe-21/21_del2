@@ -21,10 +21,8 @@ public class BankBalance {
     }
 
     // remove value of parameter "amount" from current balance
-    // uses Math.abs to get the numerical value of int
-    // balance cannot be of negative value
     public int removeBalance(int amount) {
-        setBalance(getBalance() - Math.abs(amount));
+        setBalance(getBalance() - amount);
             return getBalance();
     }
 
