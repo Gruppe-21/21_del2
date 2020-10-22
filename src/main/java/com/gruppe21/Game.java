@@ -31,4 +31,12 @@ public class Game {
         this.players = players;
         this.dice = dice;
     }
+
+    public boolean playRound(){
+
+    }
+
+    public void startGame(){
+
+    }
 }
