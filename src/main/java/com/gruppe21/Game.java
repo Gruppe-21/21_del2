@@ -54,10 +54,16 @@ public class Game {
                 "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
                 "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));
         waitForUserInput();
+
+        String strPrintRoll = "";
         int sum = 0;
         for (Die die : dice) {
             sum += die.rollDie();
+            strPrintRoll += die + ", ";
         }
+        strPrintRoll = strPrintRoll.substring(0, strPrintRoll.length() - 3);
+        System.out.println("You've rolled: " + strPrintRoll);
+
         Square squareLanedOn = board.getSquareAtNumber(sum);
         squareLanedOn.handleEvent(players[currentPlayer]);
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000){
