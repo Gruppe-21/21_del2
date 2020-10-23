@@ -49,7 +49,7 @@ public class Game {
         initGame(players, dice, isTest);
     }
 
-    private void initGame(Player[] players, Die[] dice, boolean isTest){
+    private void initGame(Player[] players, Die[] dice, boolean isTest) {
         board = new Board();
         this.players = players;
         this.dice = dice;
@@ -58,6 +58,22 @@ public class Game {
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
+
+        //It is insured that all player != null and all players have a name
+        for (int i = 0; i < players.length; i++) {
+            if (players[i] == null) players[i] = new Player();
+
+            while (players[i].getName().isEmpty()) {
+                try {
+                    players[i].setName(guiWrapper.getStringInput("Please write your name, Player" + (i + 1) ).trim());
+                    if (players[i].getName().isEmpty()) guiWrapper.showMessage("Invalid name");
+                } catch (Exception e) {
+                    guiWrapper.showMessage("An error has occurred.");
+                }
+            }
+
+        }
+
         guiWrapper.addPlayer(players[0], Color.RED);
         guiWrapper.addPlayer(players[1], Color.BLUE);
         guiWrapper.getButtonPress("Welcome to Rejsen til Kolding. Press start to begin!", "Start");
