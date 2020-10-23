@@ -5,6 +5,7 @@ import com.gruppe21.Square;
 import gui_fields.*;
 import gui_main.GUI;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class GUIWrapper {
             gui.close();
 
         addSquares(squareList);
-        gui = new GUI(fields.toArray(new GUI_Field[0]));
+        gui = new GUI(fields.toArray(new GUI_Field[0]), Color.DARK_GRAY);
     }
 
     // First add players after gui reload
