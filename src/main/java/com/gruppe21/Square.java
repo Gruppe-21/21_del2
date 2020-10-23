@@ -1,5 +1,7 @@
 package com.gruppe21;
 
+import com.gruppe21.gui.GUIWrapper;
+
 enum SquareType {
     Normal,
     ExtraTurn
@@ -36,10 +38,9 @@ public class Square {
     public void setModifyValue(int modifyValue) { this.modifyValue = modifyValue; }
 
 
-    public void handleEvent(Player player) {
-        System.out.println(eventText);
+    public void handleEvent(Player player, GUIWrapper guiWrapper) {
+        guiWrapper.showMessage(eventText);
         player.getBankBalance().addBalance(this.getModifyValue());
-        //TODO add modifyValue to bankBalance
     }
 
 
