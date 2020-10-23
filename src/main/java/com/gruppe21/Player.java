@@ -1,10 +1,10 @@
 package com.gruppe21;
 
 public class Player {
-    private String name = "";            // spillers navn
-    private BankBalance bankBalance;        // spillers point
-    //private boolean toSekserer = false;  // tjekker om spiller har to seksere
-    private boolean nameEndsWithS;     // tjekker om navn slutter med s
+    private String name = "";            // The player's name
+    private BankBalance bankBalance;        // The player's bank balance
+    //private boolean toSekserer = false;  // Checks whether or not the player played two 6
+    private boolean nameEndsWithS;     // Checks whether or not the the player's name ends with a "s"
     private int currentSquareIndex;
 
     public Player(String name){
@@ -14,12 +14,12 @@ public class Player {
     public Player(){
     }
 
-    // hent point værdi
+    // Gets the bank balance
     public BankBalance getBankBalance() {
         return bankBalance;
     }
 
-    // sætter spillers point til givne int
+    // Sets the player's point to a given int
     public void setBankBalance(BankBalance bankBalance) {
         this.bankBalance = bankBalance;
     }
@@ -29,17 +29,17 @@ public class Player {
 
     //public void setToSekserer(boolean toSekserer) {this.toSekserer = toSekserer;}
 
-    // hent navn som string
+    // Gets the player's name as a string
     public String getName() {
         return name;
     }
 
-    // sæt navn
+    // Sets the player's name
     public void setName(String name) {
         this.name = name;
         nameEndsWithS = getName().toLowerCase().endsWith("s");
     }
-
+    // Checks if the player's name ends with a "s"
     public boolean isNameEndsWithS() {
         return nameEndsWithS;
     }
