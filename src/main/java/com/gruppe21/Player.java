@@ -10,6 +10,7 @@ public class Player {
     public Player(String name){
         setName(name);
         bankBalance = new BankBalance();
+        currentSquareIndex = 0;
     }
     public Player(){
     }
