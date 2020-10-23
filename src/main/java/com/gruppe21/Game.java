@@ -2,6 +2,7 @@ package com.gruppe21;
 
 import com.gruppe21.gui.GUIWrapper;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Game {
@@ -57,8 +58,8 @@ public class Game {
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
-        guiWrapper.addPlayer(players[0]);
-        guiWrapper.addPlayer(players[1]);
+        guiWrapper.addPlayer(players[0], Color.RED);
+        guiWrapper.addPlayer(players[1], Color.BLUE);
         guiWrapper.getButtonPress("Welcome to Rejsen til Kolding. Press start to begin!", "Start");
     }
 

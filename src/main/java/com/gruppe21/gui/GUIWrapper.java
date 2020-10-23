@@ -45,7 +45,7 @@ public class GUIWrapper {
     }
 
     // First add players after gui reload
-    public void addPlayer(Player player) {
+    public void addPlayer(Player player, Color color) {
 
         // Don't add if player is null
         if (player == null)
@@ -58,6 +58,7 @@ public class GUIWrapper {
 
         GUI_Player guiPlayer = new GUI_Player(player.getName());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
+        guiPlayer.getCar().setPrimaryColor(color);
         gui.addPlayer(guiPlayer);
         players.add(guiPlayer);
     }
