@@ -14,6 +14,12 @@ public class PlayerTest {
     }
 
     @Test
+    public void addPlayerNameWithStringTest() {
+        Player player = new Player("Bob");  // make instance of Player called player
+        assertEquals("Bob", player.getName());
+    }
+
+    @Test
     public void nameWithoutSTest() {
         Player player = new Player();  // make instance of Player called player
         player.setName("Bob");
