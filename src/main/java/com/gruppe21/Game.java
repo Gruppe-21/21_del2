@@ -57,27 +57,27 @@ public class Game {
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
+        guiWrapper.addPlayer(players[0]);
+        guiWrapper.addPlayer(players[1]);
     }
+
 
     public boolean playRound() {
         System.out.println(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
                 "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
                 "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));
         waitForUserInput();
+        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
-        String strPrintRoll = "";
         int sum = 0;
         for (Die die : dice) {
             sum += die.getValue();
-            strPrintRoll += die + ", ";
         }
-
-        strPrintRoll = strPrintRoll.substring(0, strPrintRoll.length() - 2);
-        System.out.println("You've rolled: " + strPrintRoll);
+        movePlayer(currentPlayer, board.getSquareAtNumber(sum));
 
 
         Square squareLandedOn = board.getSquareAtNumber(sum);
-        squareLandedOn.handleEvent(players[currentPlayer]);
+        squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
@@ -94,8 +94,12 @@ public class Game {
             }
         }while (!playRound());
         Player winner = players[currentPlayer];
-        System.out.println(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
-                            + " and won the game");
+        guiWrapper.showMessage(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
+                                + " and won the game");
+    }
+
+    private void movePlayer(int playerIndex, Square square){
+        guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), board.getSquareIndex(square) );
     }
 
     private int nextPlayer() {
@@ -104,8 +108,6 @@ public class Game {
 
     private void waitForUserInput(){
         if (isTest) return;
-        if (scanner.nextLine().trim().equalsIgnoreCase("exit")){
-            //end game
-        }
+        guiWrapper.getButtonPress("Roll " + ( (dice.length > 1) ? "dice" : "die"));
     }
 }

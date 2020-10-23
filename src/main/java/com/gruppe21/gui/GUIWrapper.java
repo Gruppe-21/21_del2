@@ -60,10 +60,10 @@ public class GUIWrapper {
         gui.addPlayer(guiPlayer);
     }
 
-    public void movePlayer(int playerIndex, int currentSquare, int nextSquareNum){
+    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareNum){
         GUI_Player player = getPlayer(playerIndex);
         if(player != null){
-            fields.get(currentSquare).setCar(player, false);
+            fields.get(currentSquareIndex).setCar(player, false);
             fields.get(nextSquareNum).setCar(player, true);
         }
     }
