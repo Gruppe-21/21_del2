@@ -58,6 +58,7 @@ public class GUIWrapper {
         GUI_Player guiPlayer = new GUI_Player(player.getName());
         guiPlayer.setBalance(player.getBankBalance().getBalance());
         gui.addPlayer(guiPlayer);
+        players.add(guiPlayer);
     }
 
     public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareNum){
