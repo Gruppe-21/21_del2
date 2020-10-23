@@ -63,9 +63,14 @@ public class Game {
 
 
     public boolean playRound() {
+        /*
         System.out.println(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
                 "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
+                "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));*/
+        guiWrapper.showMessage(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
+                "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
                 "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));
+
         waitForUserInput();
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
@@ -99,7 +104,9 @@ public class Game {
     }
 
     private void movePlayer(int playerIndex, Square square){
-        guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), board.getSquareIndex(square) );
+        int squareIndex = board.getSquareIndex(square);
+        guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+        players[playerIndex].setCurrentSquareIndex(squareIndex);
     }
 
     private int nextPlayer() {
