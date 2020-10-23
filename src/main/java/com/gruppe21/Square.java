@@ -10,6 +10,8 @@ public class Square {
     private String name;
     private String eventText;
     private int modifyValue;
+
+
     private SquareType squareType;
 
     Square(String _name, String _eventText, int _modifyValue, SquareType _squareType) {
@@ -19,33 +21,24 @@ public class Square {
         this.squareType = _squareType;
     }
 
-    public String getName() {
-        return name;
-    }
+    public SquareType getSquareType() { return squareType; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getName() { return name; }
 
-    public String getEventText() {
-        return eventText;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public void setEventText(String eventText) {
-        this.eventText = eventText;
-    }
+    public String getEventText() { return eventText; }
 
-    public int getModifyValue() {
-        return modifyValue;
-    }
+    public void setEventText(String eventText) { this.eventText = eventText; }
 
-    public void setModifyValue(int modifyValue) {
-        this.modifyValue = modifyValue;
-    }
+    public int getModifyValue() { return modifyValue; }
+
+    public void setModifyValue(int modifyValue) { this.modifyValue = modifyValue; }
 
 
     public void handleEvent(Player player) {
         System.out.println(eventText);
+        player.getBankBalance().addBalance(this.getModifyValue());
         //TODO add modifyValue to bankBalance
     }
 

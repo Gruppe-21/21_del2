@@ -10,9 +10,9 @@ public class BankBalanceTest extends BankBalance {
         BankBalance bankBalance = new BankBalance(); // make instance of BankBalance called bankBalance
         int amount = 100;
 
-        bankBalance.addBankBalance(amount); // call addBankBalance on BankBalance
+        bankBalance.addBalance(amount); // call addBankBalance on BankBalance
 
-        assertEquals(1100,bankBalance.getBankBalance());
+        assertEquals(1100,bankBalance.getBalance());
     }
 
     @Test
@@ -20,20 +20,20 @@ public class BankBalanceTest extends BankBalance {
         BankBalance bankBalance = new BankBalance();
         int amount = -100;
 
-        bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
+        bankBalance.removeBalance(amount); // call removeBankBalance on bankBalance
 
-        assertEquals(900,bankBalance.getBankBalance());
+        assertEquals(900,bankBalance.getBalance());
     }
 
     @Test
     public void removeBankBalanceZeroTest(){
         BankBalance bankBalance = new BankBalance();
-        bankBalance.setBankBalance(50);             // bankBalance set to 50
+        bankBalance.setBalance(50);             // bankBalance set to 50
         int amount = -100;
 
-        bankBalance.removeBankBalance(amount); // call removeBankBalance on bankBalance
+        bankBalance.removeBalance(amount); // call removeBankBalance on bankBalance
 
-        assertEquals(0,bankBalance.getBankBalance());
+        assertEquals(0,bankBalance.getBalance());
     }
 
 
