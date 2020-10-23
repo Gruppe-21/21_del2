@@ -11,25 +11,19 @@ public class BankBalance {
 
     public void setBalance(int balance){
         this.balance = balance;
+        if (balance < 0) balance = 0;
     }
 
     // add value of parameter "amount" to current balance
     public int addBalance(int amount) {
         setBalance(getBalance() + amount);
-        return balance;
+        return getBalance();
     }
 
     // remove value of parameter "amount" from current balance
-    // uses Math.abs to get the numerical value of int
-    // balance cannot be of negative value
     public int removeBalance(int amount) {
-        setBalance(getBalance() - Math.abs(amount));
-        if (balance < 0){
-            setBalance(0);
-            return balance;
-        } else {
-            return balance;
-        }
+        setBalance(getBalance() - amount);
+            return getBalance();
     }
 
 }
