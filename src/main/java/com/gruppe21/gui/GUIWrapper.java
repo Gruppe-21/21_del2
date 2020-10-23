@@ -51,7 +51,7 @@ public class GUIWrapper {
             return;
         // Check if player is already added
         for (GUI_Player pl : players) {
-            if (pl.getName() == player.getName())
+            if (pl.getName().equals(player.getName()))
                 return;
         }
 
@@ -81,7 +81,7 @@ public class GUIWrapper {
 
     public GUI_Player getPlayer(String name) {
         for (GUI_Player player : players) {
-            if (player.getName() == name)
+            if (player.getName().equals(name))
                 return player;
         }
         return null;
