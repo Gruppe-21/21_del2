@@ -59,15 +59,14 @@ public class Game {
         guiWrapper.reloadGUI(board.getSquares());
         guiWrapper.addPlayer(players[0]);
         guiWrapper.addPlayer(players[1]);
+        guiWrapper.getButtonPress("Welcome to Rejsen til Kolding. Press start to begin!", "Start");
     }
 
-
     public boolean playRound() {
-        guiWrapper.showMessage(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
-           //     "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
-                "Press OK to roll your " + (dice.length > 1 ? "dice" : "die"));
 
-        waitForUserInput();
+
+
+        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ");
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
         int sum = 0;
@@ -97,7 +96,7 @@ public class Game {
         Player winner = players[currentPlayer];
         guiWrapper.showMessage(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
                                 + " and won the game");
-        guiWrapper.getButtonPress("The game will now close.");
+        guiWrapper.getButtonPress("The game will now close.", "That's fine'");
         guiWrapper.close();
     }
 
@@ -111,8 +110,9 @@ public class Game {
         return (currentPlayer + 1) % players.length;
     }
 
-    private void waitForUserInput(){
+    private void waitForUserInput(String message){
         if (isTest) return;
-        guiWrapper.getButtonPress("Roll " + ( (dice.length > 1) ? "dice" : "die"));
+        guiWrapper.getButtonPress(message, "Roll");
+//"Roll " + ( (dice.length > 1) ? "dice" : "die"
     }
 }
