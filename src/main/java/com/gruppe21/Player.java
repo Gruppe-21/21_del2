@@ -1,6 +1,8 @@
 package com.gruppe21;
 
 public class Player {
+    private static final int MAX_NAME_LENGTH = 50;
+
     private String name = "";            // spillers navn
     private BankBalance bankBalance;        // spillers point
     //private boolean toSekserer = false;  // tjekker om spiller har to seksere
@@ -41,9 +43,12 @@ public class Player {
     }
 
     // sæt navn
-    public void setName(String name) {
+    public boolean setName(String name) {
+        if (name.length() > MAX_NAME_LENGTH) return false;
+
         this.name = name;
         nameEndsWithS = getName().toLowerCase().endsWith("s");
+        return true;
     }
 
     public boolean isNameEndsWithS() {
