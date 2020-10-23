@@ -41,7 +41,7 @@ public class GUIWrapper {
             gui.close();
 
         addSquares(squareList);
-        gui = new GUI(fields.toArray(new GUI_Field[0]), Color.DARK_GRAY);
+        gui = new GUI(fields.toArray(new GUI_Field[0]), Color.WHITE);
     }
 
     // First add players after gui reload
