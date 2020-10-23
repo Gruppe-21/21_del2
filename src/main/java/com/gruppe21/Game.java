@@ -1,5 +1,7 @@
 package com.gruppe21;
 
+import com.gruppe21.gui.GUIWrapper;
+
 import java.util.Scanner;
 
 public class Game {
@@ -24,6 +26,7 @@ public class Game {
         return currentPlayer;
     }
 
+    private GUIWrapper guiWrapper;
     private Board board;
     private Player[] players;
     private int currentPlayer;
@@ -51,6 +54,9 @@ public class Game {
         this.dice = dice;
         scanner = new Scanner(System.in);
         this.isTest = isTest;
+
+        guiWrapper = new GUIWrapper();
+        guiWrapper.reloadGUI(board.getSquares());
     }
 
     public boolean playRound() {
