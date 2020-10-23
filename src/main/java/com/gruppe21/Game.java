@@ -49,7 +49,7 @@ public class Game {
         initGame(players, dice, isTest);
     }
 
-    private void initGame(Player[] players, Die[] dice, boolean isTest){
+    private void initGame(Player[] players, Die[] dice, boolean isTest) {
         board = new Board();
         this.players = players;
         this.dice = dice;
@@ -58,6 +58,30 @@ public class Game {
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
+
+        //It is insured that all player != null and all players have a name
+        for (int i = 0; i < players.length; i++) {
+            if (players[i] == null) players[i] = new Player();
+
+            while (players[i].getName().isEmpty()) {
+                try {
+                    String providedPlayerName = guiWrapper.getStringInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
+
+                    //To-Do: Read names from file
+                    if (providedPlayerName.isEmpty()) providedPlayerName = new String[] {
+                                    "Admiral Akbar", "Henning DiCaprio", "Paulo", "X Æ A-12", "John Cena", "John Smith",
+                                    "Galadriel", "Elrond", "Gandalf the Grey", "Saruman the White", "Frodo Baggins", "Samwise Gamgee",
+                                    "Bilbo Baggins"
+                                    } [ (int)(Math.random() * 13 + 1)];
+
+                    if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty()) guiWrapper.showMessage("Invalid name");
+                } catch (Exception e) {
+                    guiWrapper.showMessage("An error has occurred.");
+                }
+            }
+
+        }
+
         guiWrapper.addPlayer(players[0], Color.RED);
         guiWrapper.addPlayer(players[1], Color.BLUE);
         guiWrapper.getButtonPress("Welcome to Rejsen til Kolding. Press start to begin!", "Start");
