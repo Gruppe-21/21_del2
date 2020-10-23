@@ -39,7 +39,7 @@ public class Square {
 
 
     public void handleEvent(Player player, GUIWrapper guiWrapper) {
-        guiWrapper.showMessage(eventText);
+        guiWrapper.showMessage(eventText + " You " + (this.modifyValue < 0 ? "lose" : "gain") + " ¤" + this.modifyValue);
         player.getBankBalance().addBalance(this.getModifyValue());
     }
 
