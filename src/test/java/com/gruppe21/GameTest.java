@@ -21,5 +21,7 @@ public class GameTest {
         Assert.assertEquals(players[0], game.getPlayers()[game.getCurrentPlayer()]);
     }
 
+    @Test
+    public void startGameTest() {
 
 }
