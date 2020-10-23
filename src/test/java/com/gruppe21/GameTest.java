@@ -26,7 +26,7 @@ public class GameTest {
 
         BankBalance bankBalance = new BankBalance();
 
-        bankBalance.setBalance(bankBalance.getBalance());
+        bankBalance.setBalance(bankBalance.getBalance()+2000);
         assertEquals(3000, bankBalance.getBalance());
 
     }
