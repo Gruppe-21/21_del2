@@ -23,11 +23,9 @@ public class GameTest {
 
     @Test
     public void startGameTest() {
-
         BankBalance bankBalance = new BankBalance();
 
         bankBalance.setBalance(bankBalance.getBalance()+2000);
         assertEquals(3000, bankBalance.getBalance());
-
     }
 }
