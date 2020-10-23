@@ -60,6 +60,14 @@ public class GUIWrapper {
         gui.addPlayer(guiPlayer);
     }
 
+    public void movePlayer(int playerIndex, int currentSquare, int nextSquareNum){
+        GUI_Player player = getPlayer(playerIndex);
+        if(player != null){
+            fields.get(currentSquare).setCar(player, false);
+            fields.get(nextSquareNum).setCar(player, true);
+        }
+    }
+
     public void setDice(int val1, int val2) {
         gui.setDice(val1, val2);
     }
@@ -72,7 +80,11 @@ public class GUIWrapper {
     // Get a string input from player
     public String getStringInput(String message) {
         return gui.getUserString(message);
+    }
 
+    // Get a string input from player
+    public String getButtonPress(String message) {
+        return gui.getUserButtonPressed(message);
     }
 
     public GUI_Player getPlayer(int index) {
