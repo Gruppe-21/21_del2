@@ -74,7 +74,7 @@ public void close(){
         gui.close();
 }
     public void setDice(int val1, int val2) {
-        gui.setDice(val1, val2);
+        gui.setDice(val1, 4,5, val2, 6,5 );
     }
 
     // Show message to player
@@ -88,8 +88,8 @@ public void close(){
     }
 
     // Get a string input from player
-    public String getButtonPress(String message) {
-        return gui.getUserButtonPressed(message);
+    public String getButtonPress(String message, String ...buttonText) {
+        return gui.getUserButtonPressed(message, buttonText);
     }
 
     public void updatePlayerBalance(int playerIndex, int balance){
