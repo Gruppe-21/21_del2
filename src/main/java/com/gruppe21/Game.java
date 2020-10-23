@@ -65,8 +65,13 @@ public class Game {
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    players[i].setName(guiWrapper.getStringInput("Please write your name, Player" + (i + 1) ).trim());
-                    if (players[i].getName().isEmpty()) guiWrapper.showMessage("Invalid name");
+                    String providedPlayerName = guiWrapper.getStringInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
+
+                    //To-Do: Read names from file
+                    if (providedPlayerName.isEmpty()) providedPlayerName =
+                            new String[] {"Admiral Akbar", "Henning DiCaprio", "Paulo", "X Æ A-12", "John Cena", "John Smith"}[ (int)(Math.random() * 6 + 1)];
+
+                    if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty()) guiWrapper.showMessage("Invalid name");
                 } catch (Exception e) {
                     guiWrapper.showMessage("An error has occurred.");
                 }
