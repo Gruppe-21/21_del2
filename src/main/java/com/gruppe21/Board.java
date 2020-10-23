@@ -35,5 +35,9 @@ public class Board {
         return num <= 1 ? null : squares.get(num - 2);
     }
 
+    public int getSquareIndex(Square square){
+        return squares.indexOf(square);
+    }
+
 
 }
