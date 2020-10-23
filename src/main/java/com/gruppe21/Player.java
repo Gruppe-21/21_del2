@@ -9,10 +9,15 @@ public class Player {
 
     public Player(String name){
         setName(name);
-        bankBalance = new BankBalance();
-        currentSquareIndex = 0;
+        initPlayer();
     }
     public Player(){
+        initPlayer();
+    }
+
+    private void initPlayer(){
+        bankBalance = new BankBalance();
+        currentSquareIndex = 0;
     }
 
     // hent point værdi
