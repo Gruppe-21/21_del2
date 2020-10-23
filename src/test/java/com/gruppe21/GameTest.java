@@ -23,12 +23,7 @@ public class GameTest {
 
     @Test
     public void startGameTest() {
-        Player[] players = new Player[] {new Player("Player1"), new Player("Player2")};
-        Die[] die1 = new Die[] {new Die(), new Die()};
-        Game game = new Game(players, die1, true);
 
-        die1[0].setValue(1);
-        players[0].getBankBalance().setBankBalance(3000);
         assertEquals(true, players[0].getBankBalance());
 
 }
