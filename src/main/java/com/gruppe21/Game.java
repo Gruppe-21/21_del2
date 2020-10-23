@@ -76,7 +76,6 @@ public class Game {
         }
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
 
-
         Square squareLandedOn = board.getSquareAtNumber(sum);
         squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
         guiWrapper.updatePlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
