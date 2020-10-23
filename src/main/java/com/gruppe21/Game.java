@@ -101,6 +101,8 @@ public class Game {
         Player winner = players[currentPlayer];
         guiWrapper.showMessage(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
                                 + " and won the game");
+        guiWrapper.getButtonPress("The game will now close.");
+        guiWrapper.close();
     }
 
     private void movePlayer(int playerIndex, Square square){
