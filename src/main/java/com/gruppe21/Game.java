@@ -64,9 +64,6 @@ public class Game {
     }
 
     public boolean playRound() {
-
-
-
         waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ");
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
@@ -114,6 +111,5 @@ public class Game {
     private void waitForUserInput(String message){
         if (isTest) return;
         guiWrapper.getButtonPress(message, "Roll");
-//"Roll " + ( (dice.length > 1) ? "dice" : "die"
     }
 }
