@@ -63,13 +63,9 @@ public class Game {
 
 
     public boolean playRound() {
-        /*
-        System.out.println(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
-                "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
-                "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));*/
         guiWrapper.showMessage(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! " +
-                "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
-                "Press Enter to roll your " + (dice.length > 1 ? "dice" : "die"));
+           //     "Your balance is ¤" + players[currentPlayer].getBankBalance().getBalance() + "\n" +
+                "Press OK to roll your " + (dice.length > 1 ? "dice" : "die"));
 
         waitForUserInput();
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
@@ -83,6 +79,7 @@ public class Game {
 
         Square squareLandedOn = board.getSquareAtNumber(sum);
         squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
+        guiWrapper.updatePlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
