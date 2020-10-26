@@ -10,8 +10,8 @@ public class BankBalance {
     }
 
     public void setBalance(int balance){
-        this.balance = balance;
         if (balance < 0) balance = 0;
+        this.balance = balance;
     }
 
     // add value of parameter "amount" to current balance
