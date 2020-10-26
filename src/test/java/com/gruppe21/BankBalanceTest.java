@@ -16,6 +16,17 @@ public class BankBalanceTest extends BankBalance {
     }
 
     @Test
+    public void addBankBalanceZeroTest(){
+        BankBalance bankBalance = new BankBalance();
+        bankBalance.setBalance(50);             // bankBalance set to 50
+        int amount = -100;
+
+        bankBalance.addBalance(amount); // call removeBankBalance on bankBalance
+
+        assertEquals(0,bankBalance.getBalance());
+    }
+
+    @Test
     public void removeBankBalanceZeroTest(){
         BankBalance bankBalance = new BankBalance();
         bankBalance.setBalance(50);             // bankBalance set to 50
