@@ -41,7 +41,7 @@ public class Die {
      * @return amount og die sides
      */
     public int getFaceAmount() {
-        return faceValue;
+        return faceAmount;
     }
 
     /**
