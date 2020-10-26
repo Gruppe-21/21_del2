@@ -30,9 +30,9 @@ public class Die {
         faceValue = -1;
         faceAmount = 6;
     }
-    public Die(int FaceValue) {
+    public Die(int faceAmount) {
         faceValue = -1;
-        this.faceAmount = Math.max(2, FaceValue);
+        this.faceAmount = Math.max(2, faceAmount);
     }
 
     /**
