@@ -14,7 +14,11 @@ public class BankBalance {
         this.balance = balance;
     }
 
-    // add value of parameter "amount" to current balance
+    /**
+     * add value of parameter "amount" to current balance
+     * @param amount
+     * @return getBalance() new balance
+     */
     public int addBalance(int amount) {
         setBalance(getBalance() + amount);
         return getBalance();
