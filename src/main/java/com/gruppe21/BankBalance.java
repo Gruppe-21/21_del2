@@ -20,10 +20,4 @@ public class BankBalance {
         return getBalance();
     }
 
-    // remove value of parameter "amount" from current balance
-    public int removeBalance(int amount) {
-        setBalance(getBalance() - amount);
-            return getBalance();
-    }
-
 }
