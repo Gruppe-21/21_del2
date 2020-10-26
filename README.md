@@ -7,7 +7,6 @@
  * @author Tobias Nyholm Maneschijn
  * @author Rasmus Nylander
  * @author Troels Christoffersen
- * @author https://github.com/tobiasmaneschijn/21_del1
 ```
 
 ## CDIO del 2
