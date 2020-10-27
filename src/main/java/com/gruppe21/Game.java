@@ -34,27 +34,21 @@ public class Game {
     private Die[] dice;
 
     private Scanner scanner;
-    private boolean isTest;
 
 
     public Game(Player[] players) {
-        initGame(players, new Die[] {new Die(), new Die()}, false);
+        initGame(players, new Die[] {new Die(), new Die()});
     }
 
     public Game(Player[] players, Die[] dice) {
-        initGame(players, dice, false);
+        initGame(players, dice);
     }
 
-    public Game(Player[] players, Die[] dice, boolean isTest) {
-        initGame(players, dice, isTest);
-    }
-
-    private void initGame(Player[] players, Die[] dice, boolean isTest) {
+    private void initGame(Player[] players, Die[] dice) {
         board = new Board();
         this.players = players;
         this.dice = dice;
         scanner = new Scanner(System.in);
-        this.isTest = isTest;
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
@@ -68,6 +62,7 @@ public class Game {
                     String providedPlayerName = guiWrapper.getStringInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
 
                     //To-Do: Read names from file
+                    //Should at least be its own method mabye even its own class if it was more complicated
                     if (providedPlayerName.isEmpty()) providedPlayerName = new String[] {
                                     "Admiral Akbar", "Henning DiCaprio", "Paulo", "X Æ A-12", "John Cena", "John Smith",
                                     "Galadriel", "Elrond", "Gandalf the Grey", "Saruman the White", "Frodo Baggins", "Samwise Gamgee",
@@ -88,7 +83,7 @@ public class Game {
     }
 
     public boolean playRound() {
-        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ");
+        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ", "Roll");
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
         int sum = 0;
@@ -132,8 +127,7 @@ public class Game {
         return (currentPlayer + 1) % players.length;
     }
 
-    private void waitForUserInput(String message){
-        if (isTest) return;
-        guiWrapper.getButtonPress(message, "Roll");
+    private void waitForUserInput(String message, String buttonText){
+        guiWrapper.getButtonPress(message, buttonText);
     }
 }
