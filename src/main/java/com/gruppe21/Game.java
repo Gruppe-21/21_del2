@@ -84,7 +84,7 @@ public class Game {
 
         guiWrapper.addPlayer(players[0], Color.RED);
         guiWrapper.addPlayer(players[1], Color.BLUE);
-        guiWrapper.getButtonPress("Welcome to Rejsen til Kolding. Press start to begin!", "Start");
+        guiWrapper.getButtonPress("Welcome to The Quest for Kolding. Press start to begin!", "Start");
     }
 
     public boolean playRound() {
