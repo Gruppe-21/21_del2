@@ -34,27 +34,21 @@ public class Game {
     private Die[] dice;
 
     private Scanner scanner;
-    private boolean isTest;
 
 
     public Game(Player[] players) {
-        initGame(players, new Die[] {new Die(), new Die()}, false);
+        initGame(players, new Die[] {new Die(), new Die()});
     }
 
     public Game(Player[] players, Die[] dice) {
-        initGame(players, dice, false);
+        initGame(players, dice);
     }
 
-    public Game(Player[] players, Die[] dice, boolean isTest) {
-        initGame(players, dice, isTest);
-    }
-
-    private void initGame(Player[] players, Die[] dice, boolean isTest) {
+    private void initGame(Player[] players, Die[] dice) {
         board = new Board();
         this.players = players;
         this.dice = dice;
         scanner = new Scanner(System.in);
-        this.isTest = isTest;
 
         guiWrapper = new GUIWrapper();
         guiWrapper.reloadGUI(board.getSquares());
@@ -133,7 +127,6 @@ public class Game {
     }
 
     private void waitForUserInput(String message){
-        if (isTest) return;
         guiWrapper.getButtonPress(message, "Roll");
     }
 }
