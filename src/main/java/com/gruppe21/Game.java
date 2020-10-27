@@ -83,7 +83,7 @@ public class Game {
     }
 
     public boolean playRound() {
-        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ");
+        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ", "Roll");
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
 
         int sum = 0;
@@ -127,7 +127,7 @@ public class Game {
         return (currentPlayer + 1) % players.length;
     }
 
-    private void waitForUserInput(String message){
-        guiWrapper.getButtonPress(message, "Roll");
+    private void waitForUserInput(String message, String buttonText){
+        guiWrapper.getButtonPress(message, buttonText);
     }
 }
