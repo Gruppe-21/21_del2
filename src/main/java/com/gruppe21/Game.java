@@ -62,6 +62,7 @@ public class Game {
                     String providedPlayerName = guiWrapper.getStringInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
 
                     //To-Do: Read names from file
+                    //Should at least be its own method mabye even its own class if it was more complicated
                     if (providedPlayerName.isEmpty()) providedPlayerName = new String[] {
                                     "Admiral Akbar", "Henning DiCaprio", "Paulo", "X Æ A-12", "John Cena", "John Smith",
                                     "Galadriel", "Elrond", "Gandalf the Grey", "Saruman the White", "Frodo Baggins", "Samwise Gamgee",
