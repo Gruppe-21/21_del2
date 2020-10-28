@@ -102,8 +102,8 @@ public class GUIWrapper {
         }
     }
 
-    public GUI_Player getPlayer(int index) {
-        return players.get(index);
+    public GUI_Player getPlayer(int playerIndex) {
+        return players.get(playerIndex);
     }
 
     public GUI_Player getPlayer(String name) {
