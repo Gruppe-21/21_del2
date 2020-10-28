@@ -53,6 +53,8 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
+        //Should make sure that players.length > 1 and dice.length > 0
+
         board = new Board();
         this.players = players;
         this.dice = dice;
@@ -160,6 +162,7 @@ public class Game {
 
     private void setGUIDice(Die[] dice){
         if(isTest) return;
+        //Should make sure that at least 2 dice in dice
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
     }
 
