@@ -70,6 +70,7 @@ public class Game {
                 try {
                     String providedPlayerName = waitForUserTextInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
                     if (providedPlayerName == null){
+                        //It should not be possible to get here
                         throw new Exception("providedPlayerName is null");
                     }
 
