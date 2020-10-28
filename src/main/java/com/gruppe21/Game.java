@@ -7,6 +7,16 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class Game {
+    private GUIWrapper guiWrapper;
+    private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
+    private Color[] availableColors = colors.clone();
+    private boolean isTest;
+
+    private Board board;
+    private Player[] players;
+    private int currentPlayer;
+    private Die[] dice;
+
 
     public Player[] getPlayers() {
         return players;
@@ -28,15 +38,6 @@ public class Game {
         return currentPlayer;
     }
 
-    private GUIWrapper guiWrapper;
-    private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
-    private Color[] availableColors = colors.clone();
-    private Board board;
-    private Player[] players;
-    private int currentPlayer;
-    private Die[] dice;
-
-    private boolean isTest;
 
 
     public Game(Player[] players) {
