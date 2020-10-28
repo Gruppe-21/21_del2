@@ -91,7 +91,7 @@ public class Game {
 
     public boolean playRound() {
         waitForUserButtonPress(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn!", "Roll");
-        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+        setGUIDice(dice);
 
         int sum = 0;
         for (Die die : dice) {
@@ -101,7 +101,7 @@ public class Game {
 
         Square squareLandedOn = board.getSquareAtNumber(sum);
         squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
-        guiWrapper.updatePlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
+        setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
@@ -126,7 +126,9 @@ public class Game {
 
     private void movePlayer(int playerIndex, Square square){
         int squareIndex = board.getSquareIndex(square);
-        guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+
+        if(!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+
         players[playerIndex].setCurrentSquareIndex(squareIndex);
     }
 
@@ -154,8 +156,18 @@ public class Game {
                 availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length-1);
             } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
         }
-
     }
+
+    private void setGUIDice(Die[] dice){
+        if(isTest) return;
+        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+    }
+
+    private void setGUIPlayerBalance(int playerindex, int newBalance){
+        if (isTest) return;
+        guiWrapper.updatePlayerBalance(playerindex, newBalance);
+    }
+
 
     private void waitForUserAcknowledgement(String message){
         if (isTest) return;
