@@ -5,7 +5,6 @@ import com.gruppe21.utils.RandomNameGenerator;
 
 import java.awt.*;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Game {
 
@@ -37,7 +36,6 @@ public class Game {
     private int currentPlayer;
     private Die[] dice;
 
-    private Scanner scanner;
     private boolean isTest;
 
 
@@ -57,7 +55,6 @@ public class Game {
         board = new Board();
         this.players = players;
         this.dice = dice;
-        scanner = new Scanner(System.in);
         this.isTest = isTest;
 
         initGUI();
