@@ -35,7 +35,7 @@ public class GUIWrapper {
         }
     }
 
-    // Has to be called every time new squares are added; Most likely only in the start of the game.
+    // Has to be called every time new squares are added; Most likely only at the start of the game.
     public void reloadGUI(List<Square> squareList) {
         if (gui != null)
             gui.close();
