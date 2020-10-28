@@ -100,7 +100,7 @@ public class Game {
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
 
         Square squareLandedOn = board.getSquareAtNumber(sum);
-        squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
+        waitForUserAcknowledgement(squareLandedOn.handleEvent(players[currentPlayer]));
         setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
