@@ -30,7 +30,7 @@ public class Game {
     }
 
     private GUIWrapper guiWrapper;
-    private Color[] colors = {Color.red, Color.BLUE};
+    private Color[] colors = {Color.RED, Color.BLUE};
     private Color[] availableColors = colors.clone();
     private Board board;
     private Player[] players;
@@ -138,6 +138,7 @@ public class Game {
 
 
 
+
     private void initGUI(){
         if(isTest) return;
         guiWrapper = new GUIWrapper();
@@ -167,6 +168,7 @@ public class Game {
         if (isTest) return;
         guiWrapper.updatePlayerBalance(playerindex, newBalance);
     }
+
 
 
     private void waitForUserAcknowledgement(String message){

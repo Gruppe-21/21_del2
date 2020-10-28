@@ -9,7 +9,6 @@ public class GameTest {
 
 
     @Test
-
     public void playRoundPlayerCanWin() {
         Player[] players = new Player[] {new Player("Player1"), new Player("Player2")};
         Die[] dice = new Die[] {new Die(), new Die()};
