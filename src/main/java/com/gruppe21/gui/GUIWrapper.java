@@ -103,6 +103,7 @@ public class GUIWrapper {
     }
 
     public GUI_Player getPlayer(int playerIndex) {
+        //Mabye should make sure that playerIndex isn't out of bounds
         return players.get(playerIndex);
     }
 
