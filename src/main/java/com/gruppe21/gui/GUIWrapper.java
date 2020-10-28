@@ -63,11 +63,11 @@ public class GUIWrapper {
         players.add(guiPlayer);
     }
 
-    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareNum){
+    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex){
         GUI_Player player = getPlayer(playerIndex);
         if(player != null){
             fields.get(currentSquareIndex+1).setCar(player, false);
-            fields.get(nextSquareNum+1).setCar(player, true);
+            fields.get(nextSquareIndex +1).setCar(player, true);
         }
     }
 public void close(){
