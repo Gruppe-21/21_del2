@@ -30,7 +30,7 @@ public class Game {
     }
 
     private GUIWrapper guiWrapper;
-    private Color[] colors = {Color.RED, Color.BLUE};
+    private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
     private Color[] availableColors = colors.clone();
     private Board board;
     private Player[] players;
