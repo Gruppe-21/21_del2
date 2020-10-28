@@ -1,4 +1,4 @@
-![Test](https://github.com/Gruppe-21/21_del2/workflows/maven/badge.svg)
+![Test](https://github.com/Gruppe-21/21_del2/workflows/test/badge.svg)
 
 ```java
  * @author Hildibjørg Didriksen,
