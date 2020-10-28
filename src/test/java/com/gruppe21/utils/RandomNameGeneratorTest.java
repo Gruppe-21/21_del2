@@ -11,6 +11,8 @@ import static org.junit.Assert.*;
 
 public class RandomNameGeneratorTest {
 
+    /*Add test to test if null is returned when RandomNameGenerator.getAllNames() i given as parameter*/
+
     @Test
     public void getNameDifferentFromStringsReturnDifferentStrings() {
         String[] allNames = RandomNameGenerator.getAllNames();
