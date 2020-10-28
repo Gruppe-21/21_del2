@@ -179,7 +179,7 @@ public class Game {
 
     private void waitForUserButtonPress(String message, String buttonText){
         if (isTest) return;
-        guiWrapper.getButtonPress(message, "Roll");
+        guiWrapper.getButtonPress(message, buttonText);
     }
 
     private String waitForUserTextInput(String message){
