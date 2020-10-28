@@ -31,17 +31,20 @@ public class RandomNameGenerator {
      * @return
      */
     public static String GetNameDifferentFrom(String[] namesToAvoid) {
-        List<String> tempNames = Arrays.asList(names);
+        List<String> tempNames = new ArrayList<>(Arrays.asList(names)); //                Arrays.asList(names.clone());
+
         while (true) {
             if (tempNames.isEmpty()) return null;
             String chosenName = tempNames.get((int) (Math.random() * tempNames.size()));
+            boolean nameFound = true;
             for (String name : namesToAvoid) {
                 if (chosenName.equals(name)) {
                     tempNames.remove(chosenName);
-                    continue;
+                    nameFound = false;
+                    break;
                 }
             }
-            return chosenName;
+            if (nameFound) return chosenName;
         }
     }
 
