@@ -38,9 +38,9 @@ public class Square {
     public void setModifyValue(int modifyValue) { this.modifyValue = modifyValue; }
 
 
-    public void handleEvent(Player player, GUIWrapper guiWrapper) {
-        guiWrapper.showMessage(eventText + " You " + (this.modifyValue < 0 ? "lose" : "gain") + " ¤" + this.modifyValue);
+    public String handleEvent(Player player) {
         player.getBankBalance().addBalance(this.getModifyValue());
+        return (eventText + " You " + (this.modifyValue < 0 ? "lose" : "gain") + " ¤" + this.modifyValue);
     }
 
 

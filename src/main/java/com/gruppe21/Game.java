@@ -1,11 +1,22 @@
 package com.gruppe21;
 
 import com.gruppe21.gui.GUIWrapper;
+import com.gruppe21.utils.RandomNameGenerator;
 
 import java.awt.*;
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class Game {
+    private GUIWrapper guiWrapper;
+    private Color[] colors = {Color.RED, Color.BLUE, Color.GREEN};
+    private Color[] availableColors = colors.clone();
+    private boolean isTest;
+
+    private Board board;
+    private Player[] players;
+    private int currentPlayer;
+    private Die[] dice;
+
 
     public Player[] getPlayers() {
         return players;
@@ -27,64 +38,59 @@ public class Game {
         return currentPlayer;
     }
 
-    private GUIWrapper guiWrapper;
-    private Board board;
-    private Player[] players;
-    private int currentPlayer;
-    private Die[] dice;
-
-    private Scanner scanner;
 
 
     public Game(Player[] players) {
-        initGame(players, new Die[] {new Die(), new Die()});
+        initGame(players, new Die[] {new Die(), new Die()}, false);
     }
 
     public Game(Player[] players, Die[] dice) {
-        initGame(players, dice);
+        initGame(players, dice, false);
     }
 
-    private void initGame(Player[] players, Die[] dice) {
+    public Game(Player[] players, Die[] dice, boolean isTest) {
+        initGame(players, dice, isTest);
+    }
+
+    private void initGame(Player[] players, Die[] dice, boolean isTest) {
         board = new Board();
         this.players = players;
         this.dice = dice;
-        scanner = new Scanner(System.in);
+        this.isTest = isTest;
 
-        guiWrapper = new GUIWrapper();
-        guiWrapper.reloadGUI(board.getSquares());
+        initGUI();
 
-        //It is insured that all player != null and all players have a name
+        //It is insured that all players != null and all players have a name
         for (int i = 0; i < players.length; i++) {
             if (players[i] == null) players[i] = new Player();
 
             while (players[i].getName().isEmpty()) {
                 try {
-                    String providedPlayerName = guiWrapper.getStringInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
+                    String providedPlayerName = waitForUserTextInput("Please write your name, Player" + (i + 1) + " (Leave empty for a random name)");
+                    if (providedPlayerName == null){
+                        //It should not be possible to get here
+                        throw new Exception("providedPlayerName is null");
+                    }
 
-                    //To-Do: Read names from file
-                    //Should at least be its own method mabye even its own class if it was more complicated
-                    if (providedPlayerName.isEmpty()) providedPlayerName = new String[] {
-                                    "Admiral Akbar", "Henning DiCaprio", "Paulo", "X Æ A-12", "John Cena", "John Smith",
-                                    "Galadriel", "Elrond", "Gandalf the Grey", "Saruman the White", "Frodo Baggins", "Samwise Gamgee",
-                                    "Bilbo Baggins"
-                                    } [ (int)(Math.random() * 13 + 1)];
+                    if (providedPlayerName.isEmpty())
+                        providedPlayerName = RandomNameGenerator.GetNameDifferentFrom(players);
 
-                    if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty()) guiWrapper.showMessage("Invalid name");
+                    if (!players[i].setName(providedPlayerName.trim()) || players[i].getName().isEmpty())
+                        waitForUserAcknowledgement("Invalid name");
                 } catch (Exception e) {
-                    guiWrapper.showMessage("An error has occurred.");
+                    waitForUserAcknowledgement("An error has occurred.");
                 }
             }
 
         }
-
-        guiWrapper.addPlayer(players[0], Color.RED);
-        guiWrapper.addPlayer(players[1], Color.BLUE);
-        guiWrapper.getButtonPress("Welcome to The Quest for Kolding. Press start to begin!", "Start");
+        addPlayersToGUI(players);
+        waitForUserButtonPress("Welcome to The Quest for Kolding. Press start to begin!", "Start");
     }
 
+
     public boolean playRound() {
-        waitForUserInput(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn! ", "Roll");
-        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+        waitForUserButtonPress(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn!", "Roll");
+        setGUIDice(dice);
 
         int sum = 0;
         for (Die die : dice) {
@@ -93,8 +99,8 @@ public class Game {
         movePlayer(currentPlayer, board.getSquareAtNumber(sum));
 
         Square squareLandedOn = board.getSquareAtNumber(sum);
-        squareLandedOn.handleEvent(players[currentPlayer], guiWrapper);
-        guiWrapper.updatePlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
+        waitForUserAcknowledgement(squareLandedOn.handleEvent(players[currentPlayer]));
+        setGUIPlayerBalance(currentPlayer, players[currentPlayer].getBankBalance().getBalance());
         if (players[currentPlayer].getBankBalance().getBalance() >= 3000) {
             return true;
         }
@@ -111,15 +117,17 @@ public class Game {
             }
         }while (!playRound());
         Player winner = players[currentPlayer];
-        guiWrapper.showMessage(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
-                                + " and won the game");
-        guiWrapper.getButtonPress("The game will now close.", "That's fine'");
-        guiWrapper.close();
+        waitForUserAcknowledgement(winner.getName() + " has reached ¤" + winner.getBankBalance().getBalance()
+                                    + " and won the game");
+        waitForUserButtonPress("The game will now close.", "That's fine'");
+        closeGUI();
     }
 
     private void movePlayer(int playerIndex, Square square){
         int squareIndex = board.getSquareIndex(square);
-        guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+
+        if(!isTest) guiWrapper.movePlayer(playerIndex, players[playerIndex].getCurrentSquareIndex(), squareIndex );
+
         players[playerIndex].setCurrentSquareIndex(squareIndex);
     }
 
@@ -127,7 +135,55 @@ public class Game {
         return (currentPlayer + 1) % players.length;
     }
 
-    private void waitForUserInput(String message, String buttonText){
+
+
+
+    private void initGUI(){
+        if(isTest) return;
+        guiWrapper = new GUIWrapper();
+        guiWrapper.reloadGUI(board.getSquares());
+    }
+
+    private void closeGUI(){
+        if (guiWrapper != null) guiWrapper.close();
+    }
+
+    private void addPlayersToGUI(Player[] players){
+        if (isTest) return;
+        for (int i = 0; i < players.length; i++) {
+            if (availableColors.length != 0) {
+                guiWrapper.addPlayer(players[i], availableColors[0]);
+                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length-1);
+            } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
+        }
+    }
+
+    private void setGUIDice(Die[] dice){
+        if(isTest) return;
+        guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
+    }
+
+    private void setGUIPlayerBalance(int playerindex, int newBalance){
+        if (isTest) return;
+        guiWrapper.updatePlayerBalance(playerindex, newBalance);
+    }
+
+
+
+    private void waitForUserAcknowledgement(String message){
+        if (isTest) return;
+        guiWrapper.showMessage(message);
+    }
+
+    private void waitForUserButtonPress(String message, String buttonText){
+        if (isTest) return;
         guiWrapper.getButtonPress(message, buttonText);
     }
+
+    private String waitForUserTextInput(String message){
+        if (isTest) return null;
+        return guiWrapper.getStringInput(message);
+    }
+
+
 }
