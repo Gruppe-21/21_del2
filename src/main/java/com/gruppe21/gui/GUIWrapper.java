@@ -63,19 +63,21 @@ public class GUIWrapper {
         players.add(guiPlayer);
     }
 
-    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex){
+    public void movePlayer(int playerIndex, int currentSquareIndex, int nextSquareIndex) {
         GUI_Player player = getPlayer(playerIndex);
-        if(player != null){
-            fields.get(currentSquareIndex+1).setCar(player, false);
-            fields.get(nextSquareIndex +1).setCar(player, true);
+        if (player != null) {
+            fields.get(currentSquareIndex + 1).setCar(player, false);
+            fields.get(nextSquareIndex + 1).setCar(player, true);
         }
     }
-public void close(){
-        if(gui != null)
-        gui.close();
-}
+
+    public void close() {
+        if (gui != null)
+            gui.close();
+    }
+
     public void setDice(int val1, int val2) {
-        gui.setDice(val1, 4,5, val2, 6,5 );
+        gui.setDice(val1, 4, 5, val2, 6, 5);
     }
 
     // Show message to player
@@ -89,15 +91,15 @@ public void close(){
     }
 
     // Get a string input from player
-    public String getButtonPress(String message, String ...buttonText) {
+    public String getButtonPress(String message, String... buttonText) {
         return gui.getUserButtonPressed(message, buttonText);
     }
 
-    public void updatePlayerBalance(int playerIndex, int balance){
-         GUI_Player guiPlayer = getPlayer(playerIndex);
-         if(guiPlayer!=null){
-             guiPlayer.setBalance(balance);
-         }
+    public void updatePlayerBalance(int playerIndex, int balance) {
+        GUI_Player guiPlayer = getPlayer(playerIndex);
+        if (guiPlayer != null) {
+            guiPlayer.setBalance(balance);
+        }
     }
 
     public GUI_Player getPlayer(int index) {
