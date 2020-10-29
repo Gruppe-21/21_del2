@@ -115,5 +115,12 @@ public class GUIWrapper {
         return null;
     }
 
+    public Boolean hasPlayerWithName(String name) {
+        for (GUI_Player player : players) {
+            if (player.getName().equals(name)) return true;
+        }
+        return false;
+    }
+
 
 }

@@ -150,13 +150,26 @@ public class Game {
         if (guiWrapper != null) guiWrapper.close();
     }
 
-    private void addPlayersToGUI(Player[] players){
+    private void addPlayersToGUI(Player[] players) {
         if (isTest) return;
         for (int i = 0; i < players.length; i++) {
+            String realName = players[i].getName();
+            String guiName = realName;
+
+            int j = 2;
+            while (guiWrapper.hasPlayerWithName(guiName)) {
+                guiName = realName + j;
+                j++;
+            }
+
+            players[i].setName(guiName);
+
             if (availableColors.length != 0) {
                 guiWrapper.addPlayer(players[i], availableColors[0]);
                 availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length);
             } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
+
+            players[i].setName(realName);
         }
     }
 
