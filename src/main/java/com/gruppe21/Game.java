@@ -155,7 +155,7 @@ public class Game {
         for (int i = 0; i < players.length; i++) {
             if (availableColors.length != 0) {
                 guiWrapper.addPlayer(players[i], availableColors[0]);
-                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length-1);
+                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length);
             } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
         }
     }
