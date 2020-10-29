@@ -31,7 +31,7 @@ public class RandomNameGenerator {
      * @return
      */
     public static String GetNameDifferentFrom(String[] namesToAvoid) {
-        List<String> tempNames = new ArrayList<>(Arrays.asList(names)); //                Arrays.asList(names.clone());
+        List<String> tempNames = new ArrayList<>(Arrays.asList(names));
 
         while (true) {
             if (tempNames.isEmpty()) return null;
@@ -50,7 +50,6 @@ public class RandomNameGenerator {
 
     public static String GetNameDifferentFrom(Player[] namesToAvoid) {
         List<String> actualNames = new ArrayList<>();
-        //String[] actualNames = new String[namesToAvoid.length];
         for (int i = 0; i < namesToAvoid.length; i++) {
             if (namesToAvoid[i] != null && namesToAvoid[i].getName() != null) {
                 if (!namesToAvoid[i].getName().isEmpty()) {
