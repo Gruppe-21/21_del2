@@ -53,6 +53,8 @@ public class Game {
     }
 
     private void initGame(Player[] players, Die[] dice, boolean isTest) {
+        //Should make sure that players.length > 1 and dice.length > 0
+
         board = new Board();
         this.players = players;
         this.dice = dice;
@@ -153,13 +155,14 @@ public class Game {
         for (int i = 0; i < players.length; i++) {
             if (availableColors.length != 0) {
                 guiWrapper.addPlayer(players[i], availableColors[0]);
-                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length-1);
+                availableColors = Arrays.copyOfRange(availableColors, 1, availableColors.length);
             } else guiWrapper.addPlayer(players[i], colors[(int) (Math.random() * colors.length)]);
         }
     }
 
     private void setGUIDice(Die[] dice){
         if(isTest) return;
+        //Should make sure that at least 2 dice in dice
         guiWrapper.setDice(dice[0].getValue(), dice[1].getValue());
     }
 
