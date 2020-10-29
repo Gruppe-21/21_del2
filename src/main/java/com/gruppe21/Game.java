@@ -91,9 +91,11 @@ public class Game {
 
 
     public boolean playRound() {
+        // Wait for player to press "Roll"
         waitForUserButtonPress(players[currentPlayer].getName() + (players[currentPlayer].isNameEndsWithS() ? "'" : "'s") + " turn!", "Roll");
         setGUIDice(dice);
 
+        // Gets the sum of the random values that was set before round was started.
         int sum = 0;
         for (Die die : dice) {
             sum += die.getValue();
