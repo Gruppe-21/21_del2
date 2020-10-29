@@ -160,7 +160,7 @@ public class Game {
 
             int j = 2;
             while (guiWrapper.hasPlayerWithName(guiName)) {
-                guiName = realName + j;
+                guiName = realName + " (" + j + ")";
                 j++;
             }
 
