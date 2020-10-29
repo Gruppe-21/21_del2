@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        //Game game = new Game(new Player[] {new Player("Bob Dylan"), new Player("Henning DiCaprio")});
+        // Start new game without predefined players
         Game game = new Game(new Player[] {null, null});
         game.startGame();
     }
