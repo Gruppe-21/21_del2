@@ -20,6 +20,11 @@ public class Board {
         squares.add(new Square("The Werewall", "You have reached... THE WEREWALL. Lose some cash and get an extra turn!", -80, SquareType.ExtraTurn));
         squares.add(new Square("The pit", "You have reached the pit!", -50, SquareType.Normal));
         squares.add(new Square("Goldmine", "You found the mythical goldmine. It was filled with gold!", +650, SquareType.Normal));
+
+        for (Square square: squares) {
+            square.setEventText(square.getEventText()
+                    + " You " + (square.getModifyValue() < 0 ? "lose" : "gain") + " ¤" + square.getModifyValue());
+        }
     }
 
     public List<Square> getSquares() {
