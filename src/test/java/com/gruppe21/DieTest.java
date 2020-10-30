@@ -67,17 +67,17 @@ public class DieTest {
                 i++;
             }
 
-            System.out.println("antallet af 2'ere er: " + two);
-            System.out.println("antallet af 3'ere er: " + three);
-            System.out.println("antallet af 4'ere er: " + four);
-            System.out.println("antallet af 5'ere er: " + five);
-            System.out.println("antallet af 6'ere er: " + six);
-            System.out.println("antallet af 7'ere er: " + seven);
-            System.out.println("antallet af 8'ere er: " + eight);
-            System.out.println("antallet af 9'ere er: " + nine);
-            System.out.println("antallet af 10'ere er: " + ten);
-            System.out.println("antallet af 11'ere er: " + eleven);
-            System.out.println("antallet af 12'ere er: " + twelve);
+            System.out.println("Total times getting 2: " + two);
+            System.out.println("Total times getting 3: " + three);
+            System.out.println("Total times getting 4: " + four);
+            System.out.println("Total times getting 5:" + five);
+            System.out.println("Total times getting 6: " + six);
+            System.out.println("Total times getting 7: " + seven);
+            System.out.println("Total times getting 8: " + eight);
+            System.out.println("Total times getting 9: " + nine);
+            System.out.println("Total times getting 10:" + ten);
+            System.out.println("Total times getting 11:" + eleven);
+            System.out.println("Total times getting 12: " + twelve);
 
         }
 }
